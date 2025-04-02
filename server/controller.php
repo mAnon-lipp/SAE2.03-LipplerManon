@@ -20,3 +20,19 @@
  */
 require("model.php");
 
+/** readMoviesController
+ * 
+ * Cette fonction est en charge du traitement des requêtes HTTP pour lesquelles le paramètre 'todo' vaut 'readmovies'.
+ * Elle appelle la fonction getMovies déclarée dans model.php pour récupérer la liste des films disponibles.
+ * Elle retourne un tableau contenant les informations nécessaires : titre, affiche et identifiant.
+ * 
+ * @return array La liste des films disponibles ou false en cas d'échec.
+ */
+function readMoviesController() {
+    // Appel de la fonction getMovies du modèle pour récupérer les films
+    $movies = getMovies();
+    if ($movies === false) {
+        return false;
+    }
+    return $movies; // Retourne la liste des films
+}
